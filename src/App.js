@@ -162,7 +162,7 @@ function App() {
     if (syntaxval === "ad") {
       setSearchingData(
         Data.filter(
-          (obj) => ClearString(obj["ASA"].split(" ")[0]) === searcingvalue.toLocaleLowerCase()
+          (obj) => ClearString(obj["ASA"].split(" ")[0]).toLocaleLowerCase() === searcingvalue.toLocaleLowerCase()
         )
       );
       // console.log(Data.filter(obj=>ClearString(obj["Ad"]).toLowerCase()===searcingvalue.toLowerCase()))
@@ -170,21 +170,21 @@ function App() {
       setSearchingData(
         Data.filter(
           (obj) =>
-            ClearString(obj["ASA"].split(" ")[2]) === searcingvalue.toLocaleLowerCase()
+            ClearString(obj["ASA"].split(" ")[2]).toLocaleLowerCase() === searcingvalue.toLocaleLowerCase()
         )
       );
     } else if (syntaxval === "soyad") {
       setSearchingData(
         Data.filter(
           (obj) =>
-            ClearString(obj["ASA"].split(" ")[1]) === searcingvalue.toLocaleLowerCase()
+            ClearString(obj["ASA"].split(" ")[1]).toLocaleLowerCase() === searcingvalue.toLocaleLowerCase()
         )
       );
     } else if (syntaxval === "utis_kod") {
       setSearchingData(
         Data.filter(
           (obj) =>
-            String(ClearString(obj["UTİS"])) === String(searcingvalue.toLocaleLowerCase())
+            String(ClearString(obj["UTİS"])).toLocaleLowerCase() === String(searcingvalue.toLocaleLowerCase())
         )
       );
     }
@@ -240,24 +240,24 @@ function App() {
       setSearchingData(
         Data.filter(
           (obj) =>
-            ClearString(obj["ASA"].split(" ")[0]) === firstnonefield.toLocaleLowerCase() &&
-            ClearString(obj["ASA"].split(" ")[1]) === secondnonefield.toLocaleLowerCase()
+            ClearString(obj["ASA"].split(" ")[0]).toLocaleLowerCase() === firstnonefield.toLocaleLowerCase() &&
+            ClearString(obj["ASA"].split(" ")[1]).toLocaleLowerCase() === secondnonefield.toLocaleLowerCase()
         )
       );
     } else if (syntaxval === "ad_ata_adı") {
       setSearchingData(
         Data.filter(
           (obj) =>
-            ClearString(obj["ASA"].split(" ")[0]) === firstnonefield.toLocaleLowerCase() &&
-            ClearString(obj["ASA"].split(" ")[2]) === secondnonefield.toLocaleLowerCase()
+            ClearString(obj["ASA"].split(" ")[0]).toLocaleLowerCase() === firstnonefield.toLocaleLowerCase() &&
+            ClearString(obj["ASA"].split(" ")[2]).toLocaleLowerCase() === secondnonefield.toLocaleLowerCase()
         )
       );
     } else {
       setSearchingData(
         Data.filter(
           (obj) =>
-            ClearString(obj["ASA"].split(" ")[1]) === firstnonefield.toLocaleLowerCase() &&
-            ClearString(obj["ASA"].split(" ")[2]) === secondnonefield.toLocaleLowerCase()
+            ClearString(obj["ASA"].split(" ")[1]).toLocaleLowerCase() === firstnonefield.toLocaleLowerCase() &&
+            ClearString(obj["ASA"].split(" ")[2]).toLocaleLowerCase() === secondnonefield.toLocaleLowerCase()
         )
       );
     }
