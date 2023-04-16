@@ -238,26 +238,26 @@ function App() {
     // console.log(firstnonefield, secondnonefield);
     if (syntaxval === "ad_soyad") {
       setSearchingData(
-        Data["Ümumi"].filter(
+        Data.filter(
           (obj) =>
-            ClearString(obj["ad"]) === firstnonefield.toLocaleLowerCase() &&
-            ClearString(obj["soyad"]) === secondnonefield.toLocaleLowerCase()
+            ClearString(obj["ASA"].split(" ")[0]) === firstnonefield.toLocaleLowerCase() &&
+            ClearString(obj["ASA"].split(" ")[1]) === secondnonefield.toLocaleLowerCase()
         )
       );
     } else if (syntaxval === "ad_ata_adı") {
       setSearchingData(
-        Data["Ümumi"].filter(
+        Data.filter(
           (obj) =>
-            ClearString(obj["ad"]) === firstnonefield.toLocaleLowerCase() &&
-            ClearString(obj["ataadi"]) === secondnonefield.toLocaleLowerCase()
+            ClearString(obj["ASA"].split(" ")[0]) === firstnonefield.toLocaleLowerCase() &&
+            ClearString(obj["ASA"].split(" ")[2]) === secondnonefield.toLocaleLowerCase()
         )
       );
     } else {
       setSearchingData(
-        Data["Ümumi"].filter(
+        Data.filter(
           (obj) =>
-            ClearString(obj["soyad"]) === firstnonefield.toLocaleLowerCase() &&
-            ClearString(obj["ataadi"]) === secondnonefield.toLocaleLowerCase()
+            ClearString(obj["ASA"].split(" ")[1]) === firstnonefield.toLocaleLowerCase() &&
+            ClearString(obj["ASA"].split(" ")[2]) === secondnonefield.toLocaleLowerCase()
         )
       );
     }
