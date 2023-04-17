@@ -33,8 +33,6 @@ form input{
 
 .general{
   margin-top: 20px;
- 
-  width: 90%;
   /* border: 1px solid black; */
   min-height: 50px;
   padding: 10px;
@@ -63,7 +61,7 @@ pre{
 i{
   color:black;
   font-weight: bold;
-  font-size:19px;
+  font-size:16px;
 }
 button:hover{
   background-color: green;
