@@ -61,7 +61,9 @@ pre{
   color: #F0F8FF;
 }
 i{
-  color:black
+  color:black,
+  font-weight: bold,
+  font-size:19px,
 }
 button:hover{
   background-color: green;
