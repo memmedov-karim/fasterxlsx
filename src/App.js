@@ -271,7 +271,7 @@ function App() {
       <button onClick={handleClick}>Click test</button>
       {dt}
       <button style={{backgroundColor:"white",marginTop:"10px"}} onClick={ShowBoy}>{numberOfBoy?numberOfBoy:"Oğlan"}</button><button style={{backgroundColor:"white" ,marginTop:"10px"}} onClick={ShowGirl}>{numberOfGirl?numberOfGirl:"Qız"}</button>
-      <h1>Excel Cədvəlində Sürətli Axtarış</h1>
+      <h1>Xahiş edirik İşdayın</h1>
       <div className="searchingvalue">{Buttons}</div>
 
       {onefield && (
