@@ -184,7 +184,7 @@ function App() {
       setSearchingData(
         Data.filter(
           (obj) =>
-            String(ClearString(obj["UTİS"])).toLocaleLowerCase() === String(searcingvalue.toLocaleLowerCase())
+            String(ClearString(obj["UTİS"]).toLocaleLowerCase()).includes(String(searcingvalue.toLocaleLowerCase()))
         )
       );
     }
