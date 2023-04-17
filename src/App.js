@@ -202,7 +202,7 @@ function App() {
           <i>{user["ASA"].split(" ")[1]}</i>|<strong>Ata adı:</strong>
           <i>{user["ASA"].split(" ")[2]}</i>|<strong>Mekteb kodu:</strong>
           <i>{user["Məktəb kodu"]}</i>|<strong>Utis kodu:</strong>
-          <i style={{color:"white"}}>{user["UTİS"]}</i>|<strong>Sinif:</strong>
+          <i style={{color:"black"}}>{user["UTİS"]}</i>|<strong>Sinif:</strong>
           <i>{user["Sinif"]}</i>|<strong>Bölmə:</strong>
           <i>{user["Bölmə"]}</i>|
 
