@@ -118,6 +118,12 @@ function App() {
       color: "unset",
       value: "soyad_ata_adı",
     },
+    {
+      ad:"Məktəb",
+      id: "8",
+      color:"unset",
+      value:"school"
+    }
   ]);
   const [SearchingData, setSearchingData] = React.useState(null);
   const [syntaxval, setSyntaxval] = React.useState("");
@@ -137,7 +143,8 @@ function App() {
       e.target.value === "ad" ||
       e.target.value === "ata_adı" ||
       e.target.value === "soyad" ||
-      e.target.value === "utis_kod"
+      e.target.value === "utis_kod" ||
+      e.target.value === "school"
     ) {
       setonefield(true);
     } else {
@@ -191,6 +198,18 @@ function App() {
     // console.log(SearchingData);
     setSearchingValue("");
   };
+  else if (syntaxval === "school"){
+
+      setSearchingData(
+        Data.filter(
+          (obj) =>
+          //String(ClearString(obj["UTİS"]).toLocaleLowerCase())
+          String(ClearString(obj["Məktəb kodu"]).toLocaleLowerCase()).includes(String(searcingvalue.toLocaleLowerCase()))
+            
+        )
+      );
+
+    }
 
   const Students = SearchingData?.map((user, ind) => {
     return (
