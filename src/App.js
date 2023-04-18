@@ -195,10 +195,7 @@ function App() {
         )
       );
     }
-    // console.log(SearchingData);
-    setSearchingValue("");
-  };
-  else if (syntaxval === "school"){
+    else if (syntaxval === "school"){
 
       setSearchingData(
         Data.filter(
@@ -210,6 +207,10 @@ function App() {
       );
 
     }
+    // console.log(SearchingData);
+    setSearchingValue("");
+  };
+  
 
   const Students = SearchingData?.map((user, ind) => {
     return (
