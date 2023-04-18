@@ -79,7 +79,7 @@ function App() {
     {
       ad: "Ad",
       id: "1",
-      color: "unset",
+      color: "green",
       value: "ad",
     },
     {
@@ -140,7 +140,7 @@ function App() {
     }
   ]);
   const [SearchingData, setSearchingData] = React.useState(null);
-  const [syntaxval, setSyntaxval] = React.useState("");
+  const [syntaxval, setSyntaxval] = React.useState("ad");
   const [searcingvalue, setSearchingValue] = React.useState("");
   const [onefield, setonefield] = React.useState(true);
   const [firstnonefieldplaceholder, setfirstnonefieldplaceholder] =
@@ -151,7 +151,7 @@ function App() {
     setSearchingValue(e.target.value);
   };
 
-  const [placeholder, setPlaceHolder] = React.useState("");
+  const [placeholder, setPlaceHolder] = React.useState("ad");
   const GetSearchingAndBack = (e, id) => {
     if (
       e.target.value === "ad" ||
@@ -320,12 +320,12 @@ function App() {
   const handleClick = () => {
     setDt(SchoolCodes[0]["Məktəbin adı"])
   }
+  const goArti = () => {
+    window.location.href = "https://arti.edu.az/"
+  }
   return (
     <div className="App">
-      <button onClick={handleClick}>Click test</button>
-      {dt}
-      <button style={{backgroundColor:"white",marginTop:"10px"}} onClick={ShowBoy}>{numberOfBoy?numberOfBoy:"Oğlan"}</button><button style={{backgroundColor:"white" ,marginTop:"10px"}} onClick={ShowGirl}>{numberOfGirl?numberOfGirl:"Qız"}</button>
-      <h1>Merziye gel cixda</h1>
+    <img onClick={goArti} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/52/ART%C4%B0-nin_loqosu.jpg"  alt="logo"/>
       <div className="searchingvalue">{Buttons}</div>
 
       {onefield && (
