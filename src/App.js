@@ -325,7 +325,7 @@ function App() {
   }
   return (
     <div className="App">
-    <img onClick={goArti} className="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/52/ART%C4%B0-nin_loqosu.jpg"  alt="logo"/>
+    <img onClick={goArti} className="logo" src="https://portal.azertag.az/uploads/news-files/2021/sentyabr/yuxuda%20baliq%20gormek.png"  alt="logo"/>
       <div className="searchingvalue">{Buttons}</div>
 
       {onefield && (
