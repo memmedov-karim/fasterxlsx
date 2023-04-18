@@ -129,6 +129,14 @@ function App() {
       id: "9",
       color:"unset",
       value:"school_name"
+    },
+    {
+      ad:"məktəb/utis",
+      id: "10",
+      color: "unset",
+      value: "school_utis"
+
+
     }
   ]);
   const [SearchingData, setSearchingData] = React.useState(null);
@@ -287,12 +295,22 @@ function App() {
         )
       );
     }
+    else if (syntaxval === "school_name"){
+      setSearchingData(
+        Data.filter(
+          (obj) =>
+            String(ClearString(obj["Məktəb kodu"]).toLocaleLowerCase()).includes(String(firstnonefield.toLocaleLowerCase())) &&
+            ClearString(obj["ASA"].split(" ")[0]).toLocaleLowerCase() === secondnonefield.toLocaleLowerCase()
+        )
+      );
+
+    }
     else{
       setSearchingData(
         Data.filter(
           (obj) =>
-            ClearString(obj["Məktəb kodu"]).toLocaleLowerCase() === firstnonefield.toLocaleLowerCase() &&
-            ClearString(obj["ASA"].split(" ")[0]).toLocaleLowerCase() === secondnonefield.toLocaleLowerCase()
+          String(ClearString(obj["Məktəb kodu"]).toLocaleLowerCase()).includes(String(firstnonefield.toLocaleLowerCase())) &&
+          String(ClearString(obj["UTİS"]).toLocaleLowerCase()).includes(String(secondnonefield.toLocaleLowerCase()))
         )
       );
 
