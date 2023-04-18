@@ -66,3 +66,7 @@ i{
 button:hover{
   background-color: green;
 }
+.logo{
+  width: 15%;
+  cursor: pointer;
+}
