@@ -123,6 +123,12 @@ function App() {
       id: "8",
       color:"unset",
       value:"school"
+    },
+    {
+      ad:"məktəb/ad",
+      id: "9",
+      color:"unset",
+      value:"school_name"
     }
   ]);
   const [SearchingData, setSearchingData] = React.useState(null);
@@ -272,7 +278,7 @@ function App() {
             ClearString(obj["ASA"].split(" ")[2]).toLocaleLowerCase() === secondnonefield.toLocaleLowerCase()
         )
       );
-    } else {
+    } else if (syntaxval === "soyad_ata_adı") {
       setSearchingData(
         Data.filter(
           (obj) =>
@@ -280,6 +286,16 @@ function App() {
             ClearString(obj["ASA"].split(" ")[2]).toLocaleLowerCase() === secondnonefield.toLocaleLowerCase()
         )
       );
+    }
+    else{
+      setSearchingData(
+        Data.filter(
+          (obj) =>
+            ClearString(obj["Məktəb kodu"]).toLocaleLowerCase() === firstnonefield.toLocaleLowerCase() &&
+            ClearString(obj["ASA"].split(" ")[0]).toLocaleLowerCase() === secondnonefield.toLocaleLowerCase()
+        )
+      );
+
     }
   };
   const [dt,setDt] = useState("");
