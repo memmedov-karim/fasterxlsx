@@ -325,7 +325,7 @@ function App() {
   }
   return (
     <div className="App">
-    <img onClick={goArti} className="logo" src="https://i.ytimg.com/vi/aZ69fmIjU1U/maxresdefault.jpg"  alt="logo"/>
+    <img onClick={goArti} className="logo" src="https://i.imgur.com/o6ET8sT.png"  alt="logo"/>
       <div className="searchingvalue">{Buttons}</div>
 
       {onefield && (
