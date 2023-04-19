@@ -333,6 +333,15 @@ function App() {
 
     // console.log(res) 
     setSearchingData(data)
+    setData({
+      ad:"",
+      soyad:"",
+      ata:"",
+      utis:"",
+      məktəb:"",
+      bölmə:"",
+      sinif:""
+    })
     
   }
    const Students = SearchingData?.map((user, ind) => {
@@ -358,15 +367,19 @@ function App() {
     <div className="App">
     <img onClick={goArti} className="logo" src="https://i.imgur.com/o6ET8sT.png"  alt="logo"/>
       <form onSubmit={find}>
-        <input onChange={getData} type="text" placeholder="Ad" name="ad" value={searchingData.ad}/>
-        <input onChange={getData} type="text" placeholder="Soyad" name="soyad" value={searchingData.soyad}/>
-        <input onChange={getData} type="text" placeholder="Ata" name="ata" value={searchingData.ata} />
-        <input onChange={getData} type="text" placeholder="Utis" name="utis" value={searchingData.utis} />
-        <input onChange={getData} type="text" placeholder="Məktəb" name="məktəb" value={searchingData.məktəb}/>
-        <input onChange={getData} type="text" placeholder="Bölmə" name="bölmə" value={searchingData.bölmə} />
-        <input onChange={getData} type="text" placeholder="Sinif" name="sinif" value={searchingData.sinif}/>
-        <input type="submit" value="Axtar" />
-      </form>
+  <div className="form-row">
+    <input onChange={getData} type="text" placeholder="Ad" name="ad" value={searchingData.ad}/>
+    <input onChange={getData} type="text" placeholder="Soyad" name="soyad" value={searchingData.soyad}/>
+    <input onChange={getData} type="text" placeholder="Ata" name="ata" value={searchingData.ata}/>
+    <input onChange={getData} type="text" placeholder="Utis" name="utis" value={searchingData.utis}/>
+  </div>
+  <div className="form-row">
+    <input onChange={getData} type="text" placeholder="Məktəb" name="məktəb" value={searchingData.məktəb}/>
+    <input onChange={getData} type="text" placeholder="Bölmə" name="bölmə" value={searchingData.bölmə}/>
+    <input onChange={getData} type="text" placeholder="Sinif" name="sinif" value={searchingData.sinif}/>
+    <input type="submit" value="Axtar"/>
+  </div>
+</form>
       {SearchingData && <div className="general">{Students}</div>}
       {SearchingData !== null && SearchingData.length === 0 ? (
         <div className="general">
