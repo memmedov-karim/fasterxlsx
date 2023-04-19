@@ -226,25 +226,7 @@ function App() {
   };
   
 
-  const Students = SearchingData?.map((user, ind) => {
-    return (
-      <div key={ind} className="user">
-        <pre>
-          <strong style={{ fontSize: "15px" }}>{ind + 1}-</strong>{" "}
-          |<strong>Ad:</strong>
-          <i >{user["ASA"].split(" ")[0]}</i>|<strong>Soyad:</strong>
-          <i>{user["ASA"].split(" ")[1]}</i>|<strong>Ata adı:</strong>
-          <i>{user["ASA"].split(" ")[2]}</i>|<strong>Mekteb kodu:</strong>
-          <i>{user["Məktəb kodu"]}</i>|<strong>Utis kodu:</strong>
-          <i style={{color:"black"}}>{user["UTİS"]}</i>|<strong>Sinif:</strong>
-          <i>{user["Sinif"]}</i>|<strong>Bölmə:</strong>
-          <i>{user["Bölmə"]}</i>|
-
-          
-        </pre>
-      </div>
-    );
-  });
+ 
 
   const Buttons = ButtonsSet.map((btn, ind) => {
     return (
@@ -323,36 +305,68 @@ function App() {
   const goArti = () => {
     window.location.href = "https://arti.edu.az/"
   }
+  const [searchingData,setData] = useState({
+    ad:"",
+    soyad:"",
+    ata:"",
+    utis:"",
+    məktəb:"",
+    bölmə:"",
+    sinif:""
+  })
+  const getData = (e) => {
+    const {name,value} = e.target;
+    setData(prev=>{
+      return {
+        ...prev,
+        [name]:value
+      }
+    })
+  }
+  const find = (e) => {
+    e.preventDefault();
+    console.log(searchingData["ad"])
+    const data = Data.filter(
+      (obj) => ClearString(obj["ASA"].split(" ")[0]).toLocaleLowerCase().includes(searchingData["ad"].toLocaleLowerCase()) && ClearString(obj["ASA"].split(" ")[1]).toLocaleLowerCase().includes(searchingData["soyad"].toLocaleLowerCase()) && ClearString(obj["ASA"].split(" ")[2]).toLocaleLowerCase().includes(searchingData["ata"].toLocaleLowerCase()) && String(ClearString(obj["UTİS"]).toLocaleLowerCase()).includes(searchingData["utis"].toLocaleLowerCase()) &&
+      String(ClearString(obj["Məktəb kodu"]).toLocaleLowerCase()).includes(String(searchingData["məktəb"].toLocaleLowerCase())) && ClearString(obj["Bölmə"]).toLocaleLowerCase().includes(searchingData["bölmə"].toLocaleLowerCase()) && String(ClearString(obj["Sinif"]).toLocaleLowerCase()).includes(searchingData["sinif"].toLocaleLowerCase())
+    );
+
+    // console.log(res) 
+    setSearchingData(data)
+    
+  }
+   const Students = SearchingData?.map((user, ind) => {
+    return (
+      <div key={ind} className="user">
+        <pre>
+          <strong style={{ fontSize: "15px" }}>{ind + 1}-</strong>{" "}
+          |<strong>Ad:</strong>
+          <i >{user["ASA"].split(" ")[0]}</i>|<strong>Soyad:</strong>
+          <i>{user["ASA"].split(" ")[1]}</i>|<strong>Ata adı:</strong>
+          <i>{user["ASA"].split(" ")[2]}</i>|<strong>Mekteb kodu:</strong>
+          <i>{user["Məktəb kodu"]}</i>|<strong>Utis kodu:</strong>
+          <i style={{color:"black"}}>{user["UTİS"]}</i>|<strong>Sinif:</strong>
+          <i>{user["Sinif"]}</i>|<strong>Bölmə:</strong>
+          <i>{user["Bölmə"]}</i>|
+
+          
+        </pre>
+      </div>
+    );
+  });
   return (
     <div className="App">
     <img onClick={goArti} className="logo" src="https://i.imgur.com/o6ET8sT.png"  alt="logo"/>
-      <div className="searchingvalue">{Buttons}</div>
-
-      {onefield && (
-        <form onSubmit={SearchData}>
-          <input
-            value={searcingvalue}
-            onChange={GetSearchingValue}
-            placeholder={placeholder}
-          />
-        </form>
-      )}
-      {!onefield && (
-        <form onSubmit={SearchNoneField}>
-          <input
-            value={firstnonefield}
-            onChange={GetFirstNoneField}
-            placeholder={firstnonefieldplaceholder}
-          />
-          <input
-            style={{ marginLeft: "2px" }}
-            value={secondnonefield}
-            onChange={GetSecondNoneField}
-            placeholder={secondnonefieldplaceholder}
-          />
-          <button type="submit">axtar</button>
-        </form>
-      )}
+      <form onSubmit={find}>
+        <input onChange={getData} type="text" placeholder="Ad" name="ad" value={searchingData.ad}/>
+        <input onChange={getData} type="text" placeholder="Soyad" name="soyad" value={searchingData.soyad}/>
+        <input onChange={getData} type="text" placeholder="Ata" name="ata" value={searchingData.ata} />
+        <input onChange={getData} type="text" placeholder="Utis" name="utis" value={searchingData.utis} />
+        <input onChange={getData} type="text" placeholder="Məktəb" name="məktəb" value={searchingData.məktəb}/>
+        <input onChange={getData} type="text" placeholder="Bölmə" name="bölmə" value={searchingData.bölmə} />
+        <input onChange={getData} type="text" placeholder="Sinif" name="sinif" value={searchingData.sinif}/>
+        <input type="submit" value="Axtar" />
+      </form>
       {SearchingData && <div className="general">{Students}</div>}
       {SearchingData !== null && SearchingData.length === 0 ? (
         <div className="general">
