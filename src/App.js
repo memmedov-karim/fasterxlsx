@@ -349,9 +349,9 @@ function App() {
         <pre>
           <strong style={{ fontSize: "15px" }}>{ind + 1}-</strong>{" "}
           |<strong>Ad:</strong>
-          <i >{user["Ad"].split(" ")[0]}</i>|<strong>Soyad:</strong>
-          <i>{user["Soyad"].split(" ")[1]}</i>|<strong>Ata adı:</strong>
-          <i>{user["Ata adı"].split(" ")[2]}</i>|<strong>Mekteb kodu:</strong>
+          <i >{user["Ad"]}</i>|<strong>Soyad:</strong>
+          <i>{user["Soyad"]}</i>|<strong>Ata adı:</strong>
+          <i>{user["Ata adı"]}</i>|<strong>Mekteb kodu:</strong>
           <i>{user["Məktəb kodu"]}</i>|<strong>Utis kodu:</strong>
           <i style={{color:"black"}}>{user["Utis"]}</i>|<strong>Sinif:</strong>
           <i>{user["sinif"]}</i>|<strong>Bölmə:</strong>
