@@ -325,10 +325,9 @@ function App() {
   }
   const find = (e) => {
     e.preventDefault();
-    console.log(searchingData["ad"])
-    const data = Data.filter(
-      (obj) => ClearString(obj["ASA"].split(" ")[0]).toLocaleLowerCase().includes(searchingData["ad"].toLocaleLowerCase()) && ClearString(obj["ASA"].split(" ")[1]).toLocaleLowerCase().includes(searchingData["soyad"].toLocaleLowerCase()) && ClearString(obj["ASA"].split(" ")[2]).toLocaleLowerCase().includes(searchingData["ata"].toLocaleLowerCase()) && String(ClearString(obj["UTİS"]).toLocaleLowerCase()).includes(searchingData["utis"].toLocaleLowerCase()) &&
-      String(ClearString(obj["Məktəb kodu"]).toLocaleLowerCase()).includes(String(searchingData["məktəb"].toLocaleLowerCase())) && ClearString(obj["Bölmə"]).toLocaleLowerCase().includes(searchingData["bölmə"].toLocaleLowerCase()) && String(ClearString(obj["Sinif"]).toLocaleLowerCase()).includes(searchingData["sinif"].toLocaleLowerCase())
+   const data = Data.filter(
+      (obj) => ClearString(obj["Ad"]).toLocaleLowerCase().includes(searchingData["ad"].toLocaleLowerCase()) && ClearString(obj["Soyad"]).toLocaleLowerCase().includes(searchingData["soyad"].toLocaleLowerCase()) && ClearString(obj["Ata adı"]).toLocaleLowerCase().includes(ClearString(searchingData["ata"]).toLocaleLowerCase()) && String(ClearString(obj["Utis"]).toLocaleLowerCase()).includes(searchingData["utis"].toLocaleLowerCase()) &&
+      String(ClearString(obj["Məktəb kodu"]).toLocaleLowerCase()).includes(String(searchingData["məktəb"].toLocaleLowerCase())) && ClearString(obj["Bölmə"]).toLocaleLowerCase().includes(searchingData["bölmə"].toLocaleLowerCase()) && String(ClearString(obj["sinif"]).toLocaleLowerCase()).includes(searchingData["sinif"].toLocaleLowerCase())
     );
 
     // console.log(res) 
@@ -350,12 +349,12 @@ function App() {
         <pre>
           <strong style={{ fontSize: "15px" }}>{ind + 1}-</strong>{" "}
           |<strong>Ad:</strong>
-          <i >{user["ASA"].split(" ")[0]}</i>|<strong>Soyad:</strong>
-          <i>{user["ASA"].split(" ")[1]}</i>|<strong>Ata adı:</strong>
-          <i>{user["ASA"].split(" ")[2]}</i>|<strong>Mekteb kodu:</strong>
+          <i >{user["Ad"].split(" ")[0]}</i>|<strong>Soyad:</strong>
+          <i>{user["Soyad"].split(" ")[1]}</i>|<strong>Ata adı:</strong>
+          <i>{user["Ata adı"].split(" ")[2]}</i>|<strong>Mekteb kodu:</strong>
           <i>{user["Məktəb kodu"]}</i>|<strong>Utis kodu:</strong>
-          <i style={{color:"black"}}>{user["UTİS"]}</i>|<strong>Sinif:</strong>
-          <i>{user["Sinif"]}</i>|<strong>Bölmə:</strong>
+          <i style={{color:"black"}}>{user["Utis"]}</i>|<strong>Sinif:</strong>
+          <i>{user["sinif"]}</i>|<strong>Bölmə:</strong>
           <i>{user["Bölmə"]}</i>|
 
           
