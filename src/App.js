@@ -9,6 +9,17 @@ function App() {
   //   }
   // }
   // 1670649
+  const checkutis= (utis,remaind) => {
+    if(remaind===""){
+      return true
+    }
+    for(let i=0;i<utis.length;i++){
+      if(remaind[i]!=="*" && remaind[i]!==utis[i]){
+        return false
+      }
+    }
+    return true
+  }
   const [numberOfGirl,setnumberOfGirl] = React.useState(null);
   const [numberOfBoy,setnumberOfBoy] = React.useState(null);
   const FindNumOfGirl = (data) => {
@@ -326,7 +337,7 @@ function App() {
   const find = (e) => {
     e.preventDefault();
    const data = Data.filter(
-      (obj) => ClearString(obj["Ad"]).toLocaleLowerCase().includes(searchingData["ad"].toLocaleLowerCase()) && ClearString(obj["Soyad"]).toLocaleLowerCase().includes(searchingData["soyad"].toLocaleLowerCase()) && ClearString(obj["Ata adı"]).toLocaleLowerCase().includes(ClearString(searchingData["ata"]).toLocaleLowerCase()) && String(ClearString(obj["Utis"]).toLocaleLowerCase()).includes(searchingData["utis"].toLocaleLowerCase()) &&
+      (obj) => ClearString(obj["Ad"]).toLocaleLowerCase().includes(searchingData["ad"].toLocaleLowerCase()) && ClearString(obj["Soyad"]).toLocaleLowerCase().includes(searchingData["soyad"].toLocaleLowerCase()) && ClearString(obj["Ata adı"]).toLocaleLowerCase().includes(ClearString(searchingData["ata"]).toLocaleLowerCase()) && (String(ClearString(obj["Utis"]).toLocaleLowerCase()).includes(searchingData["utis"].toLocaleLowerCase()) || checkutis(String(obj["Utis"]),searchingData["utis"])) &&
       String(ClearString(obj["Məktəb kodu"]).toLocaleLowerCase()).includes(String(searchingData["məktəb"].toLocaleLowerCase())) && ClearString(obj["Bölmə"]).toLocaleLowerCase().includes(searchingData["bölmə"].toLocaleLowerCase()) && String(ClearString(obj["sinif"]).toLocaleLowerCase()).includes(searchingData["sinif"].toLocaleLowerCase())
     );
 
