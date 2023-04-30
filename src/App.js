@@ -355,7 +355,8 @@ function App() {
           <i>{user["Məktəb kodu"]}</i>|<strong>Utis kodu:</strong>
           <i style={{color:"black"}}>{user["Utis"]}</i>|<strong>Sinif:</strong>
           <i>{user["sinif"]}</i>|<strong>Bölmə:</strong>
-          <i>{user["Bölmə"]}</i>|
+          <i>{user["Bölmə"]}</i>|<strong>Fənn:</strong>
+          <i>{user["istiqamet"]}
 
           
         </pre>
