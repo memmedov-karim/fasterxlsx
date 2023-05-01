@@ -9,6 +9,27 @@ function App() {
   //   }
   // }
   // 1670649
+  const modifyString = (string) => {
+    let originalString = "";
+    for(let i of string){
+      if(i==="W"){
+        originalString+="ə";
+      }
+      else if(i==="s"){
+        originalString+="Ş";
+      }
+      else if(i==="g"){
+        originalString+="Ğ";
+      }
+      else if(i==="I"){
+        originalString+="i"
+      }
+      else{
+        originalString+=i;
+      }
+    }
+    return originalString
+  }
   const checkutis= (utis,remaind) => {
     if(remaind===""){
       return true
@@ -351,7 +372,7 @@ function App() {
   const find = (e) => {
     e.preventDefault();
    const data = Data.filter(
-      (obj) => ClearString(obj["Ad"]).toLocaleLowerCase().includes(searchingData["ad"].toLocaleLowerCase()) && ClearString(obj["Soyad"]).toLocaleLowerCase().includes(searchingData["soyad"].toLocaleLowerCase()) && ClearString(obj["Ata adı"]).toLocaleLowerCase().includes(ClearString(searchingData["ata"]).toLocaleLowerCase()) && (String(ClearString(obj["Utis"]).toLocaleLowerCase()).includes(searchingData["utis"].toLocaleLowerCase()) || checkutis(String(obj["Utis"]),searchingData["utis"])) &&
+      (obj) => ClearString(obj["Ad"]).toLocaleLowerCase().includes(modifyString(searchingData["ad"]).toLocaleLowerCase()) && ClearString(obj["Soyad"]).toLocaleLowerCase().includes(modifyString(searchingData["soyad"]).toLocaleLowerCase()) && ClearString(obj["Ata adı"]).toLocaleLowerCase().includes(ClearString(modifyString(searchingData["ata"])).toLocaleLowerCase()) && (String(ClearString(obj["Utis"]).toLocaleLowerCase()).includes(searchingData["utis"].toLocaleLowerCase()) || checkutis(String(obj["Utis"]),searchingData["utis"])) &&
       String(ClearString(obj["Məktəb kodu"]).toLocaleLowerCase()).includes(String(searchingData["məktəb"].toLocaleLowerCase())) && ClearString(obj["Bölmə"]).toLocaleLowerCase().includes(searchingData["bölmə"].toLocaleLowerCase()) && String(ClearString(obj["sinif"]).toLocaleLowerCase()).includes(searchingData["sinif"].toLocaleLowerCase())
     );
 
