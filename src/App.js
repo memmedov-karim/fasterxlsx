@@ -370,8 +370,10 @@ function App() {
   }
    const Students = SearchingData?.map((user, ind) => {
     let name = FindScholName(String(user["Məktəb kodu"]));
+    let otherInfo = `Mərkəz:${user["Mərkəz"]},Otaq:${user["otaq"]},Yer:${user["yer"]}`;
+    let res = name+ "||" + otherInfo;
     return (
-      <div title={name} key={ind} className="user">
+      <div title={res} key={ind} className="user">
         <pre>
           <strong style={{ fontSize: "15px" }}>{ind + 1}-</strong>{" "}
           |<strong>Ad:</strong>
