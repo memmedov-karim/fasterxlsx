@@ -369,7 +369,7 @@ function App() {
     
   }
    const Students = SearchingData?.map((user, ind) => {
-    let name = FindScholName(user["Məktəb kodu"]);
+    let name = FindScholName(String(user["Məktəb kodu"]));
     return (
       <div title={name} key={ind} className="user">
         <pre>
