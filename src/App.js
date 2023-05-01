@@ -79,13 +79,27 @@ function App() {
     }
     return neww.toLocaleLowerCase();
   };
-  // for(let i of ClearString("YUSİF       ")){
-  //   console.log(i)
-  // }
-  // console.log(ClearString("FİDAN       ").length,"fidan".toLowerCase().length)
-  // console.log("YUSİF       ".length,"SÜLEYMAN    ".length,"FİDAN       ".length)
-  // console.log("fidann".toLowerCase().length,ClearString(Data[1]["Ad"]).toLowerCase().length)
-  // console.log(Data[0]["Ata adı"])\
+  const [sccode,setsccode] = useState("");
+  const [res,setres] = useState("");
+  const FindScholName = (code) => {
+    
+    for(let i of SchoolCodes){
+      if(i["Yeni Kod 5 rəqəmli ( rayon + məktəb)"]===code){
+        return i["Məktəbin adı"]
+      }
+    }
+    return "Məktəb tapılmadı"
+  }
+
+  const handSub = (e) => {
+    e.preventDefault()
+    if(sccode!==""){
+      setres(FindScholName(sccode))
+      setsccode("")
+
+    }
+
+  }
   const [ButtonsSet, setButtonSet] = React.useState([
     {
       ad: "Ad",
@@ -376,7 +390,12 @@ function App() {
   });
   return (
     <div className="App">
-    <img onClick={goArti} className="logo" src="https://i.imgur.com/o6ET8sT.png"  alt="logo"/>
+    <form className="cd" onSubmit={handSub}>
+        <input placeholder="məktəb kodu" type="text" value={sccode} onChange={(e)=>{setsccode(e.target.value)}} />
+        <input type="submit" value="axtar" />
+        {res}
+      </form>
+  
       <form onSubmit={find}>
   <div className="form-row">
     <input onChange={getData} type="text" placeholder="Ad" name="ad" value={searchingData.ad}/>
