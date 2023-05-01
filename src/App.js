@@ -369,6 +369,7 @@ function App() {
     
   }
    const Students = SearchingData?.map((user, ind) => {
+    let name = FindScholName(user["Məktəb kodu"]);
     return (
       <div key={ind} className="user">
         <pre>
@@ -376,7 +377,7 @@ function App() {
           |<strong>Ad:</strong>
           <i >{user["Ad"]}</i>|<strong>Soyad:</strong>
           <i>{user["Soyad"]}</i>|<strong>Ata adı:</strong>
-          <i>{user["Ata adı"]}</i>|<strong>Mekteb kodu:</strong>
+          <i title={name}>{user["Ata adı"]}</i>|<strong>Mekteb kodu:</strong>
           <i>{user["Məktəb kodu"]}</i>|<strong>Utis kodu:</strong>
           <i style={{color:"black"}}>{user["Utis"]}</i>|<strong>Sinif:</strong>
           <i>{user["sinif"]}</i>|<strong>Bölmə:</strong>
